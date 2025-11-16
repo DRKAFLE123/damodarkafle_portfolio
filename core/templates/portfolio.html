@@ -171,7 +171,7 @@
                     </div>
                 </div>
 
-                <!-- NEW SECTION: Gemini LLM Tools -->
+                <!-- NEW SECTION: Gemini LLM Tools (RESTORED) -->
                 <h3 class="text-2xl font-bold text-center text-gradient mt-20 mb-8">Interactive Tools (Powered by Gemini)</h3>
                 <p class="text-md text-center text-gray-400 mb-10 max-w-4xl mx-auto">
                     Demonstrating analytical and planning capabilities using real-time generative AI. Try them out!
@@ -373,7 +373,7 @@
 
                 <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl text-left border border-gray-700">
                     
-                    <!-- New Block: Django Messages Display -->
+                    <!-- Django Messages Display (for Contact Form success/error) -->
                     {% if messages %}
                         <div class="mb-6">
                             {% for message in messages %}
@@ -386,7 +386,7 @@
                         </div>
                     {% endif %}
                     
-                    <!-- Updated Form: Action/CSRF enabled -->
+                    <!-- Contact Form: MUST include {% csrf_token %} -->
                     <form action="{% url 'home' %}" method="POST" id="contactForm">
                         {% csrf_token %}
                         <div class="mb-4">
@@ -410,7 +410,7 @@
         </section>
     </main>
 
-    <!-- Footer (RESTORED SECTION) -->
+    <!-- Footer -->
     <footer class="bg-[#0d1117] py-8 border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
             <div class="flex justify-center space-x-6 mb-4 text-xl">
@@ -418,7 +418,6 @@
                 <a href="https://github.com/DamodarKafle" target="_blank" aria-label="GitHub" class="hover:text-cyan-400 transition duration-200">Git</a>
                 <a href="https://youtube.com/DamodarKafle" target="_blank" aria-label="YouTube" class="hover:text-cyan-400 transition duration-200">YT</a>
             </div>
-            <!-- Element with id="currentYear" is now present -->
             &copy; <span id="currentYear"></span> Damodar Kafle. All rights reserved. | Strategic Management & Technology.
         </div>
     </footer>
@@ -427,43 +426,74 @@
         // Get the current year for the footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        const API_KEY = ""; // Using empty string, assuming Canvas will inject key or backend will handle
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`;
-        
         // --- Utility Functions ---
 
         /**
-         * Generic function to call the Gemini API.
+         * Generic function to call the Gemini API via the secure Django Proxy.
          * @param {string} prompt The user prompt (e.g., project description).
          * @param {string} systemInstruction Persona/rules for the model.
          * @returns {Promise<string>} The generated text.
          */
         async function callGeminiApi(prompt, systemInstruction) {
+            // CRITICAL FIX: Ensure this URL points to your local Django endpoint, NOT Google's API directly.
+            const PROXY_URL = '/api/gemini-proxy/'; 
+
+            // Get CSRF Token from cookie
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        let cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            const csrftoken = getCookie('csrftoken');
+
             const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemInstruction }] },
+                prompt: prompt,
+                systemInstruction: systemInstruction,
             };
 
             const maxRetries = 3;
             for (let attempt = 0; attempt < maxRetries; attempt++) {
                 try {
-                    const response = await fetch(API_URL, {
+                    const response = await fetch(PROXY_URL, {
                         method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            // IMPORTANT: Include CSRF token for Django security on AJAX POSTs
+                            'X-CSRFToken': csrftoken 
+                        },
                         body: JSON.stringify(payload)
                     });
 
+                    if (response.status === 403) {
+                        // This indicates a CSRF failure on the AJAX call.
+                        // Since gemini_proxy_view is @csrf_exempt, this should NOT happen 
+                        // unless the token is completely missing or the server is serving 
+                        // an old version of core/views.py without the decorator.
+                        throw new Error("CSRF check failed. Please ensure the server is restarted and core/views.py has the @csrf_exempt decorator.");
+                    }
+
                     if (!response.ok) {
+                        // Handle server-side errors from the Django proxy view
                         const errorBody = await response.json();
-                        throw new Error(`API returned status ${response.status}: ${errorBody.error?.message || 'Unknown error'}`);
+                        throw new Error(`API Proxy returned status ${response.status}: ${errorBody.error || 'Unknown error'}`);
                     }
 
                     const result = await response.json();
-                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    const text = result.text; // Expecting { "text": "..." } from the Django proxy view
+
                     if (text) {
                         return text;
                     } else {
-                        throw new Error("Gemini response was empty or malformed.");
+                        throw new Error("Proxy response was empty or malformed.");
                     }
                 } catch (error) {
                     console.error(`Attempt ${attempt + 1} failed:`, error);
@@ -471,8 +501,7 @@
                         const delay = Math.pow(2, attempt) * 1000;
                         await new Promise(resolve => setTimeout(resolve, delay));
                     } else {
-                        // Re-throw on final failure
-                        throw new Error("Failed to communicate with Gemini API after multiple retries.");
+                        throw new Error(`Failed to communicate with Django proxy after multiple retries. Details: ${error.message}`);
                     }
                 }
             }
@@ -480,9 +509,6 @@
 
         // --- Gemini Tool Handlers ---
 
-        /**
-         * Handles the Project Management Strategy generation tool.
-         */
         async function generatePmStrategy() {
             const input = document.getElementById('pm-input').value.trim();
             const outputDiv = document.getElementById('pm-output');
@@ -493,7 +519,6 @@
                 return;
             }
 
-            // Set loading state
             const originalButtonText = button.innerHTML;
             button.disabled = true;
             button.innerHTML = '<div class="loading-spinner mr-2"></div> Analyzing Strategy...';
@@ -505,12 +530,11 @@
 
             try {
                 const result = await callGeminiApi(userPrompt, systemPrompt);
-                // Convert Markdown output to HTML for display
                 const htmlResult = result
-                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
-                    .replace(/^- /gm, '<li class="ml-4 list-disc text-sm text-gray-300">') // Bullet points
-                    .replace(/\n\n/g, '<br><br>') // Paragraph breaks
-                    .replace(/## (.*)/g, '<h5 class="text-lg font-semibold text-gradient mt-3 mb-1">$1</h5>'); // Headings
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/^- /gm, '<li class="ml-4 list-disc text-sm text-gray-300">')
+                    .replace(/\n\n/g, '<br><br>')
+                    .replace(/## (.*)/g, '<h5 class="text-lg font-semibold text-gradient mt-3 mb-1">$1</h5>');
 
                 outputDiv.innerHTML = `
                     <h5 class="text-sm font-semibold text-cyan-400 mb-2">Strategic Analysis Result:</h5>
@@ -524,9 +548,6 @@
             }
         }
         
-        /**
-         * Handles the QA Test Case generation tool.
-         */
         async function generateQaTestCases() {
             const input = document.getElementById('qa-input').value.trim();
             const outputDiv = document.getElementById('qa-output');
@@ -537,7 +558,6 @@
                 return;
             }
 
-            // Set loading state
             const originalButtonText = button.innerHTML;
             button.disabled = true;
             button.innerHTML = '<div class="loading-spinner mr-2"></div> Generating Test Cases...';
@@ -549,11 +569,10 @@
             try {
                 const result = await callGeminiApi(userPrompt, systemPrompt);
                 
-                // Simple formatting for numbered list output
                 const htmlResult = result
                     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                     .replace(/\n\n/g, '<br>')
-                    .replace(/(\d+\.\s)/g, '<br>$1'); // Ensure numbered lists break properly
+                    .replace(/(\d+\.\s)/g, '<br>$1');
 
                 outputDiv.innerHTML = `
                     <h5 class="text-sm font-semibold text-cyan-400 mb-2">Suggested Test Cases:</h5>
