@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Optimization -->
+    <title>Damodar Kafle | Project Manager & QA Engineering Leader</title>
+    <meta name="description" content="Damodar Kafle's professional portfolio showcasing expertise in Project Management, Quality Assurance, Python (Django), Laravel, Flutter, and scalable technology leadership.">
+    <meta name="keywords" content="Damodar Kafle, Project Manager, QA Engineer, Python, Django, PostgreSQL, Laravel, Flutter, Machine Learning, SEO, Project Management Professional">
+
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Set default font to Inter and enable smooth scrolling */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0d1117; /* Dark background: deep charcoal */
+            color: #e4e6e8; /* Light gray text */
+        }
+        /* New Accent Color: Gradient Blue to Cyan */
+        .text-gradient {
+            background-image: linear-gradient(to right, #3b82f6, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .accent-bg-gradient {
+            background-image: linear-gradient(to right, #3b82f6, #22d3ee);
+        }
+        /* Custom styles for section separators/dividers */
+        .section-divider {
+            height: 3px;
+            width: 80px;
+            margin: 1.5rem auto;
+            background-image: linear-gradient(to right, #3b82f6, #22d3ee);
+            border-radius: 9999px;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); /* Subtle glow */
+        }
+        /* Custom animation for the Hero button glow */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #3b82f6;
+            border-radius: 50%;
+            width: 1.5rem;
+            height: 1.5rem;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    <!-- {% load static %} -->
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#161b22] shadow-xl">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold rounded-lg px-2 py-1 transition duration-300 hover:opacity-80 text-gradient">
+                Damodar Kafle
+            </a>
+            <div class="space-x-4 flex">
+                <a href="#expertise" class="text-sm font-medium hover:text-cyan-400 transition duration-200 p-2 rounded-lg">Expertise</a>
+                <a href="#projects" class="text-sm font-medium hover:text-cyan-400 transition duration-200 p-2 rounded-lg">Projects</a>
+                <a href="#blog" class="text-sm font-medium hover:text-cyan-400 transition duration-200 p-2 rounded-lg">Insights</a>
+                <a href="#contact" class="text-sm font-medium hover:text-cyan-400 transition duration-200 p-2 rounded-lg">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="hero" class="py-20 sm:py-32 md:py-40 text-center max-w-5xl mx-auto px-4 relative overflow-hidden">
+            <!-- Subtle background effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-transparent to-[#161b22]/50"></div>
+            
+            <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight mb-4 z-10 relative">
+                Driving Success at the Intersection of <span class="text-gradient">Code, Quality, and Strategy</span>.
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-400 mb-10 z-10 relative">
+                I'm <strong class="text-gradient">Damodar Kafle</strong>: Project Manager, QA Engineering Leader, and Full-Stack Technologist.
+            </p>
+            
+            <div class="flex justify-center space-x-6 z-10 relative">
+                <a href="#contact" class="inline-block px-8 py-3 text-lg font-semibold text-white accent-bg-gradient rounded-xl shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105 animate-pulse-glow">
+                    Let's Collaborate &rarr;
+                </a>
+                <a href="#resume" class="inline-block px-8 py-3 text-lg font-semibold text-gray-200 border border-gray-600 rounded-xl hover:bg-gray-700 transition duration-300 transform hover:scale-105">
+                    View Resume
+                </a>
+            </div>
+
+            <!-- Social Links - Prominent in Hero Footer -->
+            <div class="flex justify-center space-x-6 mt-12 text-2xl text-gray-500 z-10 relative">
+                <a href="https://linkedin.com/in/DamodarKafle" target="_blank" aria-label="LinkedIn" class="hover:text-cyan-400 transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://github.com/DamodarKafle" target="_blank" aria-label="GitHub" class="hover:text-cyan-400 transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.44-.78-3.5.38-1.18.15-2.52-.6-3.72-2 0-3 1.2-3 1.2s-1-2-3-2c-2 0-3 2-3 2s-1.04-1.2-3-1.2c-.75 1.2-.98 2.54-.6 3.72-.51 1.06-.86 2.25-.78 3.5 0 3.5 3 5.5 6 5.5-1.5.75-2 2-2 3.5v4"/></svg>
+                </a>
+                <a href="https://youtube.com/DamodarKafle" target="_blank" aria-label="YouTube" class="hover:text-cyan-400 transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.2 8.6c-.1-1.3-.4-2.3-1.2-3.1C16.2 6.4 15.2 6.1 13.9 6h-3.8C8.8 6.1 7.8 6.4 7 7.4c-.8.8-1.1 1.8-1.2 3.1v2.8c.1 1.3.4 2.3 1.2 3.1.8 1 1.8 1.3 3.1 1.4h3.8c1.3-.1 2.3-.4 3.1-1.4.8-.8 1.1-1.8 1.2-3.1v-2.8zM10 15V9l5 3-5 3z"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. Core Expertise & Skills Section -->
+        <section id="expertise" class="py-20 sm:py-28 bg-[#161b22] px-4">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-4">Core Expertise: Strategy, Quality, and Code</h2>
+                <p class="text-lg text-center text-gray-400 mb-10">Bridging the gap between vision, flawless execution, and scalable technology.</p>
+                <div class="section-divider"></div>
+                
+                <div class="grid md:grid-cols-3 gap-10 mt-10">
+                    <!-- Column 1: Project Management (Strategy) -->
+                    <div class="bg-[#0d1117] p-6 rounded-2xl shadow-2xl border border-gray-700/50 hover:border-cyan-400 transition duration-300">
+                        <h3 class="text-xl font-semibold text-gradient mb-3 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            Project Management
+                        </h3>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                            Expert in planning, execution, and delivery of complex software projects. I focus on scope definition, resource allocation, risk mitigation, and maintaining stakeholder alignment across Agile and Waterfall methodologies.
+                        </p>
+                        <ul class="text-xs space-y-1 text-gray-400 list-inside list-disc ml-3">
+                            <li>Cross-functional Team Leadership & Scrum Mastery</li>
+                            <li>Budget & Risk Management</li>
+                            <li>Strategic Stakeholder Communication</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Column 2: Quality Assurance (Process) -->
+                    <div class="bg-[#0d1117] p-6 rounded-2xl shadow-2xl border border-gray-700/50 hover:border-cyan-400 transition duration-300">
+                        <h3 class="text-xl font-semibold text-gradient mb-3 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            Quality Assurance Engineering
+                        </h3>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                            Dedicated to building robust, defect-free products through comprehensive QA strategies. Skilled in test automation, performance testing, and establishing CI/CD pipeline integration for continuous quality.
+                        </p>
+                        <ul class="text-xs space-y-1 text-gray-400 list-inside list-disc ml-3">
+                            <li>Automated Testing (Selenium/Cypress) & Performance Testing</li>
+                            <li>Defect Triage & Root Cause Analysis</li>
+                            <li>CI/CD Quality Gate Integration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Column 3: Full-Stack & AI (Technology) -->
+                    <div class="bg-[#0d1117] p-6 rounded-2xl shadow-2xl border border-gray-700/50 hover:border-cyan-400 transition duration-300">
+                        <h3 class="text-xl font-semibold text-gradient mb-3 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+                            Full-Stack & ML/AI
+                        </h3>
+                        <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                            Full-stack versatility with a focus on modern frameworks and scalable architecture. Expertise extends to Python for Machine Learning (AI) model development and deployment.
+                        </p>
+                        <ul class="text-xs space-y-1 text-gray-400 list-inside list-disc ml-3">
+                            <li>**Python/Django**, Laravel, Flutter, HTML/CSS/JS</li>
+                            <li>**AI / Machine Learning** model deployment</li>
+                            <li>PostgreSQL & Database Design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- NEW SECTION: Gemini LLM Tools -->
+                <h3 class="text-2xl font-bold text-center text-gradient mt-20 mb-8">Interactive Tools (Powered by Gemini)</h3>
+                <p class="text-md text-center text-gray-400 mb-10 max-w-4xl mx-auto">
+                    Demonstrating analytical and planning capabilities using real-time generative AI. Try them out!
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-10 mt-10">
+                    
+                    <!-- GEMINI TOOL 1: PM Strategy Planner -->
+                    <div class="bg-[#161b22] p-8 rounded-2xl shadow-2xl border border-gray-700/50 hover:border-blue-500 transition duration-300">
+                        <h4 class="text-xl font-semibold text-cyan-400 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+                            Project Strategy Planner
+                        </h4>
+                        <p class="text-sm text-gray-400 mb-4">Input a high-level project idea to receive a strategic scope and risk summary.</p>
+                        
+                        <textarea id="pm-input" rows="3" placeholder="E.g., Develop an AI chatbot for customer service, integrating with our existing helpdesk software." class="w-full px-4 py-2 bg-[#0d1117] border border-gray-600 rounded-lg focus:border-cyan-500 text-white text-sm"></textarea>
+                        
+                        <button onclick="generatePmStrategy()" id="pm-button" class="mt-4 w-full px-4 py-2 text-sm font-bold text-white accent-bg-gradient rounded-xl shadow-md hover:opacity-90 transition duration-300 flex items-center justify-center">
+                            Generate PM Strategy ✨
+                        </button>
+
+                        <div id="pm-output" class="mt-5 pt-4 border-t border-gray-700">
+                            <p class="text-xs text-gray-500 italic">Output will appear here...</p>
+                        </div>
+                    </div>
+
+                    <!-- GEMINI TOOL 2: QA Test Case Designer -->
+                    <div class="bg-[#161b22] p-8 rounded-2xl shadow-2xl border border-gray-700/50 hover:border-blue-500 transition duration-300">
+                        <h4 class="text-xl font-semibold text-cyan-400 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            QA Test Case Designer
+                        </h4>
+                        <p class="text-sm text-gray-400 mb-4">Input a feature or user story to generate a set of functional and edge-case test cases.</p>
+                        
+                        <textarea id="qa-input" rows="3" placeholder="E.g., The user can upload a profile picture which is automatically cropped to 150x150px and saved to a public CDN." class="w-full px-4 py-2 bg-[#0d1117] border border-gray-600 rounded-lg focus:border-cyan-500 text-white text-sm"></textarea>
+                        
+                        <button onclick="generateQaTestCases()" id="qa-button" class="mt-4 w-full px-4 py-2 text-sm font-bold text-white accent-bg-gradient rounded-xl shadow-md hover:opacity-90 transition duration-300 flex items-center justify-center">
+                            Suggest Test Cases ✨
+                        </button>
+
+                        <div id="qa-output" class="mt-5 pt-4 border-t border-gray-700">
+                            <p class="text-xs text-gray-500 italic">Output will appear here...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. Resume & CV Download Section (Unchanged) -->
+        <section id="resume" class="py-16 sm:py-20 px-4">
+            <div class="max-w-4xl mx-auto text-center bg-[#161b22] p-10 rounded-2xl shadow-2xl">
+                <h2 class="text-3xl font-bold mb-4">Download My Detailed Resume</h2>
+                <p class="text-lg text-gray-400 mb-6">
+                    A comprehensive overview of my experience in Project Management, QA, and Engineering.
+                </p>
+                <!-- NOTE: Replace the href below with the actual URL to your hosted CV/PDF file. -->
+                <a href="https://damodarkafle.com.np/assets/DamodarKafle_CV.pdf" download="DamodarKafle_CV_PM_QA" class="inline-flex items-center px-8 py-3 text-lg font-bold text-white accent-bg-gradient rounded-xl shadow-lg hover:opacity-90 transition duration-300 transform hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Download CV (PDF)
+                </a>
+                <p class="text-sm text-gray-500 mt-4">
+                    *The CV link is updated to reflect your domain: `https://damodarkafle.com.np/assets/DamodarKafle_CV.pdf`*
+                </p>
+            </div>
+        </section>
+
+
+        <!-- 4. Projects Section (Content slightly shortened) -->
+        <section id="projects" class="py-20 sm:py-28 px-4">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-4">Key Projects & Deliverables</h2>
+                <p class="text-lg text-center text-gray-400 mb-10">Showcasing technical depth and strategic project execution.</p>
+                <div class="section-divider"></div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1: Flutter/Mobile Focus -->
+                    <div class="bg-[#161b22] p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-cyan-400/50 transition duration-300">
+                        <h3 class="text-xl font-semibold text-gradient mb-2">Cross-Platform App (Flutter)</h3>
+                        <p class="text-xs text-gray-400 mb-4">Flutter, Laravel API, QA Automation</p>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            Led technical team in developing a high-performance mobile application using **Flutter**. Implemented end-to-end **QA automation**, reducing pre-release defect rate by 40%.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="text-sm font-medium hover:text-cyan-400 transition duration-200 underline">View Case Study</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2: AI/ML Focus -->
+                    <div class="bg-[#161b22] p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-cyan-400/50 transition duration-300">
+                        <h3 class="text-xl font-semibold text-gradient mb-2">Predictive ML Model (Python/Django)</h3>
+                        <p class="text-xs text-gray-400 mb-4">Python, Scikit-learn, Django, CI/CD</p>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            Developed and deployed a **Machine Learning** model using **Python** to forecast project risks, integrated via a **Django** web application. Achieved 90% prediction accuracy.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="text-sm font-medium hover:text-cyan-400 transition duration-200 underline">Read Whitepaper</a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3: Creative/SEO Focus -->
+                    <div class="bg-[#161b22] p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-cyan-400/50 transition duration-300">
+                        <h3 class="text-xl font-semibold text-gradient mb-2">Visual Content Strategy & SEO</h3>
+                        <p class="text-xs text-gray-400 mb-4">Graphics Design, Video Editing, SEO, HTML/CSS/JS</p>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            Designed and executed an integrated content strategy, combining **Graphics Design** and **Video Editing** for high-impact campaigns. Optimized landing pages for a 30% increase in **SEO** traffic.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" class="text-sm font-medium hover:text-cyan-400 transition duration-200 underline">Design Samples</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Media & YouTube Section (Unchanged) -->
+        <section id="media" class="py-20 sm:py-28 bg-[#161b22] px-4">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Videos & Insights</h2>
+                <p class="text-lg text-gray-400 mb-10">Sharing knowledge on technology, quality, and leadership.</p>
+                <div class="section-divider"></div>
+
+                <div class="grid md:grid-cols-2 gap-8 mt-12">
+                    <!-- Placeholder for YouTube Video 1 -->
+                    <div class="bg-[#0d1117] p-4 rounded-2xl shadow-xl border border-gray-700">
+                        <div class="relative w-full h-0 pb-[56.25%] rounded-lg overflow-hidden mb-4">
+                            <iframe class="absolute top-0 left-0 w-full h-full" 
+                                src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
+                                title="Project Management Tips for Developers" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gradient text-left">Project Management Tips for Developers</h3>
+                        <p class="text-sm text-gray-400 text-left mt-1">A deep dive into Agile principles and successful sprint planning.</p>
+                    </div>
+
+                    <!-- Placeholder for YouTube Video 2 (Link to a Playlist or channel) -->
+                    <div class="bg-[#0d1117] p-6 rounded-2xl shadow-xl border border-gray-700 flex flex-col justify-center items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-cyan-400 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.75 6.75a2 2 0 0 1 2-2h14.5a2 2 0 0 1 2 2v10.5a2 2 0 0 1-2 2H4.75a2 2 0 0 1-2-2V6.75z"/><path d="M10.25 8.75v6.5l5.5-3.25z"/></svg>
+                        <h3 class="text-xl font-semibold text-gradient mb-2">Explore My Full YouTube Channel</h3>
+                        <p class="text-center text-gray-400 text-sm mb-4">Tutorials on Python, Laravel, and Quality Engineering practices.</p>
+                        <a href="https://youtube.com/DamodarKafle" target="_blank" class="text-sm font-medium hover:text-cyan-400 transition duration-200 underline">Go to Channel &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Blog / Insights Section (Unchanged) -->
+        <section id="blog" class="py-20 sm:py-28 px-4">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-4">Latest Insights (Blog)</h2>
+                <p class="text-lg text-center text-gray-400 mb-10">Thoughts on the evolving landscape of technology and management.</p>
+                <div class="section-divider"></div>
+
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <!-- Blog Card 1 -->
+                    <article class="bg-[#161b22] p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-cyan-400/50 transition duration-300">
+                        <p class="text-xs text-gray-500 mb-2">October 25, 2025</p>
+                        <h3 class="text-lg font-semibold text-gradient mb-3">Integrating LLMs into QA Workflow</h3>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            How I use Machine Learning models to auto-generate test cases and speed up regression cycles without sacrificing coverage.
+                        </p>
+                        <a href="#" target="_blank" class="text-sm font-medium hover:text-cyan-400 transition duration-200 underline">Read More &rarr;</a>
+                    </article>
+                    <!-- Blog Card 2 -->
+                    <article class="bg-[#161b22] p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-cyan-400/50 transition duration-300">
+                        <p class="text-xs text-gray-500 mb-2">September 12, 2025</p>
+                        <h3 class="text-lg font-semibold text-gradient mb-3">Project Success: Django vs. Laravel</h3>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            A PM's perspective on choosing the right framework (Python/Django vs. PHP/Laravel) based on team expertise and project scope.
+                        </p>
+                        <a href="#" target="_blank" class="text-sm font-medium hover:text-cyan-400 transition duration-200 underline">Read More &rarr;</a>
+                    </article>
+                    <!-- Blog Card 3 -->
+                    <article class="bg-[#161b22] p-6 rounded-2xl shadow-xl border border-gray-700 hover:border-cyan-400/50 transition duration-300">
+                        <p class="text-xs text-gray-500 mb-2">August 1, 2025</p>
+                        <h3 class="text-lg font-semibold text-gradient mb-3">The Art of Minimalist Graphics Design</h3>
+                        <p class="text-gray-300 mb-4 text-sm">
+                            My principles for creating clear, effective visual content and video edits that align perfectly with brand identity.
+                        </p>
+                        <a href="#" target="_blank" class="text-sm font-medium hover:text-cyan-400 transition duration-200 underline">Read More &rarr;</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 7. Contact Section -->
+        <section id="contact" class="py-20 sm:py-28 bg-[#161b22] px-4">
+            <div class="max-w-xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Connect and Collaborate</h2>
+                <div class="section-divider"></div>
+                <p class="text-lg text-gray-300 mb-8">
+                    Ready to discuss your next project? Let's connect directly.
+                </p>
+
+                <div class="bg-gray-800 p-8 rounded-2xl shadow-2xl text-left border border-gray-700">
+                    
+                    <!-- New Block: Django Messages Display -->
+                    {% if messages %}
+                        <div class="mb-6">
+                            {% for message in messages %}
+                                <div class="p-3 rounded-lg text-center font-semibold 
+                                    {% if message.tags == 'success' %}bg-green-600/20 text-green-400 border border-green-600 
+                                    {% else %}bg-yellow-600/20 text-yellow-400 border border-yellow-600{% endif %}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    
+                    <!-- Updated Form: Action/CSRF enabled -->
+                    <form action="{% url 'home' %}" method="POST" id="contactForm">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="name" class="block text-sm font-medium text-gray-400 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-[#0d1117] border border-gray-600 rounded-lg focus:border-cyan-500 focus:ring-cyan-500 text-white transition duration-200">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-[#0d1117] border border-gray-600 rounded-lg focus:border-cyan-500 focus:ring-cyan-500 text-white transition duration-200">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 bg-[#0d1117] border border-gray-600 rounded-lg focus:border-cyan-500 focus:ring-cyan-500 text-white transition duration-200"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-4 py-3 text-lg font-semibold text-white accent-bg-gradient rounded-xl shadow-md hover:opacity-90 transition duration-300 transform hover:scale-[1.01]">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (RESTORED SECTION) -->
+    <footer class="bg-[#0d1117] py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-500">
+            <div class="flex justify-center space-x-6 mb-4 text-xl">
+                <a href="https://linkedin.com/in/DamodarKafle" target="_blank" aria-label="LinkedIn" class="hover:text-cyan-400 transition duration-200">In</a>
+                <a href="https://github.com/DamodarKafle" target="_blank" aria-label="GitHub" class="hover:text-cyan-400 transition duration-200">Git</a>
+                <a href="https://youtube.com/DamodarKafle" target="_blank" aria-label="YouTube" class="hover:text-cyan-400 transition duration-200">YT</a>
+            </div>
+            <!-- Element with id="currentYear" is now present -->
+            &copy; <span id="currentYear"></span> Damodar Kafle. All rights reserved. | Strategic Management & Technology.
+        </div>
+    </footer>
+
+    <script>
+        // Get the current year for the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const API_KEY = ""; // Using empty string, assuming Canvas will inject key or backend will handle
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`;
+        
+        // --- Utility Functions ---
+
+        /**
+         * Generic function to call the Gemini API.
+         * @param {string} prompt The user prompt (e.g., project description).
+         * @param {string} systemInstruction Persona/rules for the model.
+         * @returns {Promise<string>} The generated text.
+         */
+        async function callGeminiApi(prompt, systemInstruction) {
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] },
+            };
+
+            const maxRetries = 3;
+            for (let attempt = 0; attempt < maxRetries; attempt++) {
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorBody = await response.json();
+                        throw new Error(`API returned status ${response.status}: ${errorBody.error?.message || 'Unknown error'}`);
+                    }
+
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (text) {
+                        return text;
+                    } else {
+                        throw new Error("Gemini response was empty or malformed.");
+                    }
+                } catch (error) {
+                    console.error(`Attempt ${attempt + 1} failed:`, error);
+                    if (attempt < maxRetries - 1) {
+                        const delay = Math.pow(2, attempt) * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    } else {
+                        // Re-throw on final failure
+                        throw new Error("Failed to communicate with Gemini API after multiple retries.");
+                    }
+                }
+            }
+        }
+
+        // --- Gemini Tool Handlers ---
+
+        /**
+         * Handles the Project Management Strategy generation tool.
+         */
+        async function generatePmStrategy() {
+            const input = document.getElementById('pm-input').value.trim();
+            const outputDiv = document.getElementById('pm-output');
+            const button = document.getElementById('pm-button');
+
+            if (!input) {
+                outputDiv.innerHTML = '<p class="text-sm text-yellow-400">Please enter a project description first.</p>';
+                return;
+            }
+
+            // Set loading state
+            const originalButtonText = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<div class="loading-spinner mr-2"></div> Analyzing Strategy...';
+            outputDiv.innerHTML = '<p class="text-sm text-cyan-400">Consulting AI for Project Strategy...</p>';
+
+
+            const systemPrompt = `You are a Senior Project Manager and QA Engineering Leader, specializing in full-stack development. Your goal is to analyze a project idea and provide a concise, high-level project strategy, key risks, and recommended metrics for success. Use clear headings and bullet points.`;
+            const userPrompt = `Project Idea: ${input}`;
+
+            try {
+                const result = await callGeminiApi(userPrompt, systemPrompt);
+                // Convert Markdown output to HTML for display
+                const htmlResult = result
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                    .replace(/^- /gm, '<li class="ml-4 list-disc text-sm text-gray-300">') // Bullet points
+                    .replace(/\n\n/g, '<br><br>') // Paragraph breaks
+                    .replace(/## (.*)/g, '<h5 class="text-lg font-semibold text-gradient mt-3 mb-1">$1</h5>'); // Headings
+
+                outputDiv.innerHTML = `
+                    <h5 class="text-sm font-semibold text-cyan-400 mb-2">Strategic Analysis Result:</h5>
+                    <div class="p-3 bg-[#0d1117] rounded-lg shadow-inner">${htmlResult}</div>
+                `;
+            } catch (error) {
+                outputDiv.innerHTML = `<p class="text-sm text-red-500">Error: ${error.message}. Please check console for details.</p>`;
+            } finally {
+                button.disabled = false;
+                button.innerHTML = originalButtonText;
+            }
+        }
+        
+        /**
+         * Handles the QA Test Case generation tool.
+         */
+        async function generateQaTestCases() {
+            const input = document.getElementById('qa-input').value.trim();
+            const outputDiv = document.getElementById('qa-output');
+            const button = document.getElementById('qa-button');
+
+            if (!input) {
+                outputDiv.innerHTML = '<p class="text-sm text-yellow-400">Please enter a feature description first.</p>';
+                return;
+            }
+
+            // Set loading state
+            const originalButtonText = button.innerHTML;
+            button.disabled = true;
+            button.innerHTML = '<div class="loading-spinner mr-2"></div> Generating Test Cases...';
+            outputDiv.innerHTML = '<p class="text-sm text-cyan-400">Consulting AI for QA Test Cases...</p>';
+
+            const systemPrompt = `You are an expert QA Engineer. Generate a brief list of test cases (functional, non-functional, and edge cases) for the given feature description. Use only numbered lists and bold the category of the test case (e.g., **Functional**, **Edge Case**).`;
+            const userPrompt = `Feature: ${input}`;
+
+            try {
+                const result = await callGeminiApi(userPrompt, systemPrompt);
+                
+                // Simple formatting for numbered list output
+                const htmlResult = result
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\n\n/g, '<br>')
+                    .replace(/(\d+\.\s)/g, '<br>$1'); // Ensure numbered lists break properly
+
+                outputDiv.innerHTML = `
+                    <h5 class="text-sm font-semibold text-cyan-400 mb-2">Suggested Test Cases:</h5>
+                    <div class="p-3 bg-[#0d1117] rounded-lg shadow-inner text-sm text-gray-300">${htmlResult}</div>
+                `;
+            } catch (error) {
+                outputDiv.innerHTML = `<p class="text-sm text-red-500">Error: ${error.message}. Please check console for details.</p>`;
+            } finally {
+                button.disabled = false;
+                button.innerHTML = originalButtonText;
+            }
+        }
+    </script>
+</body>
+</html>
