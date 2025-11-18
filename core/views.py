@@ -3,6 +3,8 @@ import json
 import requests
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponseBadRequest
+from django.core.mail import send_mail
+from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt # <-- CRITICAL IMPORT
 from django.urls import reverse
 from django.contrib import messages
@@ -31,6 +33,29 @@ def home_view(request):
             email=email,
             message=message_text
         )
+
+        # 2b. Send notification email to site owner
+        try:
+            subject = f"New contact from {name or 'Website Visitor'}"
+            body_lines = [
+                f"Name: {name}",
+                f"Email: {email}",
+                "",
+                "Message:",
+                message_text or "(no message provided)",
+            ]
+            body = "\n".join(body_lines)
+
+            send_mail(
+                subject=subject,
+                message=body,
+                from_email=getattr(settings, 'DEFAULT_FROM_EMAIL', settings.EMAIL_HOST_USER),
+                recipient_list=["damodarms0804@gmail.com"],
+                fail_silently=False,
+            )
+        except Exception as e:
+            # Log error but don't block the user flow
+            print(f"Failed to send contact notification email: {e}")
         
         # 3. Add success message
         messages.success(request, "Thank you for your message, Damodar will be in touch soon!")
